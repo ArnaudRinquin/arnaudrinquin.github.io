@@ -56,7 +56,7 @@ This step is fast if you are well organized:
 # Step 1. Automatic ssh key switching.
 We can configure `ssh` to send a use a specific encryption key depending on the `host`. The nice thing is that you can have several aliases for the same `hostname`.
 
-See this example `~/.ss/config` file:
+See this example `~/.ssh/config` file:
 
 ```
 # Default GitHub
@@ -75,7 +75,7 @@ Host github_pro
 ## git remote configuration
 You can now use these aliases in the git remotes by changing `git@github.com` by `git@github_pro`.
 
-You can either change your existing projects remotes (using something like `git remote origin set-url git@github_pro:foo/bar.git`)or adapt them directly when cloning them.
+You can either change your existing projects remotes (using something like `git remote origin set-url git@github_pro:foo/bar.git`) or adapt them directly when cloning them.
 
 ```
 git clone git@github.com:ArnaudRinquin/atom-zentabs.git
