@@ -1,0 +1,246 @@
+@import url(https://fonts.googleapis.com/css?family=Rock+Salt);
+@font-face {
+    font-family: 'selima';
+    src: url('./fonts/Selima.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+/*
+  colors:
+hsl(260, 100%, 50%);
+hsl(260, 100%, 70%);
+hsl(260, 100%, 85%);
+hsl(260, 100%, 97%);
+
+hsl(168, 45%, 23%)
+hsl(167, 44%, 49%)
+hsl(164, 22%, 90%)
+
+hsl(190, 45%, 23%);
+hsl(190, 44%, 50%);
+hsl(190, 22%, 90%);
+
+hsl(25, 95%, 50%);
+hsl(25, 80%, 60%);
+hsl(25, 22%, 90%);
+
+ */
+
+/* Generics */
+html {
+  color: hsl(0, 0%, 33%);
+  font-size: 24px;
+}
+@media (max-width: 900px) {
+  html { font-size: 20px; }
+}
+@media (max-width: 400px) {
+  html { font-size: 16px; }
+}
+
+*, :before, :after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.big {
+  font-size: 1.2rem;
+}
+
+.bigger {
+  font-size: 3rem;
+}
+
+.small {
+  font-size: 0.6rem;
+}
+
+.fancy {
+  font-family: 'selima', cursive;
+}
+
+.serif {
+  font-family: serif;
+  line-height: 1.5rem;
+  /* font-weight: lighter; */
+}
+
+a, a:visited {
+  transition: all 0.3s ease-in-out;
+  color: hsl(190, 44%, 50%);
+}
+
+a:hover,
+a:visited:hover,
+a.active,
+a:visited.active {
+  color: hsl(190, 45%, 23%);
+}
+
+.blue {
+  background: hsl(190, 22%, 90%);
+  color: hsl(190, 44%, 50%);
+}
+
+.blue-text,
+a,
+a:visited {
+  color: hsl(190, 44%, 50%);
+}
+
+.bluer-text {
+  color: hsl(190, 45%, 23%);
+}
+
+.orange {
+  background: hsl(25, 22%, 90%);;
+  color: hsl(25, 80%, 60%);
+}
+
+.orange-text,
+.orange a,
+.orange a:visited {
+  color: hsl(25, 80%, 60%);
+}
+
+.orange a:hover,
+.orange a:visited:hover,
+.orange a.active,
+.orange a:visited.active {
+  color: hsl(25, 95%, 50%);
+}
+
+.transition {
+  transition: all 1s ease-in-out;
+}
+
+.panel {
+  min-height: 60vh;
+}
+
+.centered {
+  text-align: center;
+}
+
+/* Navigation links */
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+nav ul.split::after {
+  content: '';
+  flex-grow: 1;
+  order: 0;
+}
+
+nav ul .right {
+  order: 1;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+header nav li {
+  margin-left: 1rem;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+/* Head navigation */
+header {
+  padding: 0 10vw;
+}
+
+#top-nav {
+  padding: 2vh;
+  height: 12vh;
+}
+
+.avatar {
+  width: 7vh;
+  border-radius: 10vh;
+  background: hsla(0, 100%, 100%, 0.33);
+}
+
+header nav {
+  font-size: 1.3rem;
+  display: inline-block;
+  width: 100%;
+}
+
+header nav ul {
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* I'm Arnaud. */
+#iam {
+  overflow: hidden;
+  height: 80vh;
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+#iam .bigger {
+  font-size: 4rem;
+}
+
+#iam .content {
+  padding-bottom: 3rem;
+}
+
+#editor {
+  height: 50vh;
+}
+
+/* Hi */
+
+#hi {
+  padding: 2rem;
+}
+
+#hi .big {
+  margin: 1rem;
+}
+
+#hi .avatar {
+  width: 12vh;
+}
+
+/* Footer navigation */
+footer {
+  text-align: center;
+}
+
+footer nav {
+  padding: 2rem;
+  padding-bottom: 0.4rem;
+}
+
+footer nav ul {
+  justify-content: center;
+}
+
+footer nav ul li {
+  width: 25%;
+  margin: 1rem 0;
+}
+
+.copyright {
+  padding: 0.4rem;
+}
+
+@media (max-width: 900px) {
+  footer nav ul li {
+    width: 50%;
+  }
+}
