@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="616px" height="317px" viewBox="0 0 616 317" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.5.2 (25235) - http://www.bohemiancoding.com/sketch -->
+<svg width="616px" height="317px" viewBox="0 0 616 317" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.6 (26304) - http://www.bohemiancoding.com/sketch -->
     <title>editor</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
-    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Dark-Code-Editor-Window" sketch:type="MSArtboardGroup">
-            <g id="editor" sketch:type="MSLayerGroup">
-                <g id="Base-+-Header" sketch:type="MSShapeGroup">
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dark-Code-Editor-Window">
+            <g id="editor">
+                <g id="Base-+-Header">
                     <rect id="Base" fill="#353B46" x="0" y="16" width="616" height="303" rx="5"></rect>
                     <g id="Header">
                         <path d="M5.00363082,0 C2.24020182,0 0,2.22944355 0,4.99790202 L0,31 L616,31 L616,4.99790202 C616,2.23763695 613.769475,0 610.996369,0 L5.00363082,0 Z" id="Base" fill="#EEF1F5"></path>
@@ -18,7 +18,7 @@
                         </g>
                     </g>
                 </g>
-                <text id="Line-Numbers" opacity="0.8" sketch:type="MSTextLayer" font-family="Monaco" font-size="14" font-weight="normal" sketch:alignment="right" fill="#858585">
+                <text id="Line-Numbers" opacity="0.8" font-family="Monaco" font-size="14" font-weight="normal" fill="#858585">
                     <tspan x="20.5986328" y="55">1</tspan>
                     <tspan x="20.5986328" y="78.1689453">2</tspan>
                     <tspan x="20.5986328" y="101.337891">3</tspan>
@@ -33,7 +33,7 @@
                     <tspan x="12.1972656" y="309.858398">12</tspan>
                     <tspan x="29" y="333.027344"></tspan>
                 </text>
-                <text id="&lt;!doctype-html&gt;" sketch:type="MSTextLayer" font-family="Monaco" font-size="14" font-weight="normal">
+                <text id="&lt;!doctype-html&gt;" font-family="Monaco" font-size="14" font-weight="normal">
                     <tspan x="40" y="55" fill="#47AAC6">&lt;!</tspan>
                     <tspan x="56.8027344" y="55" fill="#B42D30">doctype</tspan>
                     <tspan x="115.612305" y="55" fill="#D0021C"> </tspan>
@@ -49,53 +49,53 @@
                     <tspan x="40" y="101.337891" fill="#47AAC6">&lt;</tspan>
                     <tspan x="48.4013672" y="101.337891" fill="#B42D30">head</tspan>
                     <tspan x="82.0068359" y="101.337891" fill="#47AAC6">&gt;</tspan>
-                    <tspan x="40" y="124.506836" fill="#47AAC6">	&lt;</tspan>
-                    <tspan x="76.4013672" y="124.506836" fill="#B42D30">meta</tspan>
-                    <tspan x="110.006836" y="124.506836" fill="#47AAC6"> </tspan>
-                    <tspan x="118.408203" y="124.506836" fill="#A370BA">charset</tspan>
-                    <tspan x="177.217773" y="124.506836" fill="#47AAC6">=</tspan>
-                    <tspan x="185.619141" y="124.506836" fill="#54D16D">“UTF-8”</tspan>
-                    <tspan x="244.428711" y="124.506836" fill="#47AAC6">&gt;</tspan>
-                    <tspan x="40" y="147.675781" fill="#47AAC6">	&lt;</tspan>
-                    <tspan x="76.4013672" y="147.675781" fill="#B42D30">title</tspan>
-                    <tspan x="118.408203" y="147.675781" fill="#47AAC6">&gt;</tspan>
-                    <tspan x="126.80957" y="147.675781" fill="#FFFFFF">Awesome website</tspan>
-                    <tspan x="252.830078" y="147.675781" fill="#47AAC6">&lt;/</tspan>
-                    <tspan x="269.632812" y="147.675781" fill="#B42D30">title</tspan>
-                    <tspan x="311.639648" y="147.675781" fill="#47AAC6">&gt;</tspan>
-                    <tspan x="40" y="170.844727" fill="#47AAC6">	&lt;</tspan>
-                    <tspan x="76.4013672" y="170.844727" fill="#B42D30">link</tspan>
-                    <tspan x="110.006836" y="170.844727" fill="#47AAC6"> </tspan>
-                    <tspan x="118.408203" y="170.844727" fill="#A370BA">href</tspan>
-                    <tspan x="152.013672" y="170.844727" fill="#47AAC6">=</tspan>
-                    <tspan x="160.415039" y="170.844727" fill="#54D16D">“./style.css”</tspan>
-                    <tspan x="269.632812" y="170.844727" fill="#47AAC6"> </tspan>
-                    <tspan x="278.03418" y="170.844727" fill="#A370BA">rel</tspan>
-                    <tspan x="303.238281" y="170.844727" fill="#47AAC6">=</tspan>
-                    <tspan x="311.639648" y="170.844727" fill="#54D16D">“stylesheet”</tspan>
-                    <tspan x="412.456055" y="170.844727" fill="#47AAC6">&gt;</tspan>
+                    <tspan x="73.6054688" y="124.506836" fill="#47AAC6">&lt;</tspan>
+                    <tspan x="82.0068359" y="124.506836" fill="#B42D30">meta</tspan>
+                    <tspan x="115.612305" y="124.506836" fill="#47AAC6"> </tspan>
+                    <tspan x="124.013672" y="124.506836" fill="#A370BA">charset</tspan>
+                    <tspan x="182.823242" y="124.506836" fill="#47AAC6">=</tspan>
+                    <tspan x="191.224609" y="124.506836" fill="#54D16D">“UTF-8”</tspan>
+                    <tspan x="250.03418" y="124.506836" fill="#47AAC6">&gt;</tspan>
+                    <tspan x="73.6054688" y="147.675781" fill="#47AAC6">&lt;</tspan>
+                    <tspan x="82.0068359" y="147.675781" fill="#B42D30">title</tspan>
+                    <tspan x="124.013672" y="147.675781" fill="#47AAC6">&gt;</tspan>
+                    <tspan x="132.415039" y="147.675781" fill="#FFFFFF">Awesome website</tspan>
+                    <tspan x="258.435547" y="147.675781" fill="#47AAC6">&lt;/</tspan>
+                    <tspan x="275.238281" y="147.675781" fill="#B42D30">title</tspan>
+                    <tspan x="317.245117" y="147.675781" fill="#47AAC6">&gt;</tspan>
+                    <tspan x="73.6054688" y="170.844727" fill="#47AAC6">&lt;</tspan>
+                    <tspan x="82.0068359" y="170.844727" fill="#B42D30">link</tspan>
+                    <tspan x="115.612305" y="170.844727" fill="#47AAC6"> </tspan>
+                    <tspan x="124.013672" y="170.844727" fill="#A370BA">href</tspan>
+                    <tspan x="157.619141" y="170.844727" fill="#47AAC6">=</tspan>
+                    <tspan x="166.020508" y="170.844727" fill="#54D16D">“./style.css”</tspan>
+                    <tspan x="275.238281" y="170.844727" fill="#47AAC6"> </tspan>
+                    <tspan x="283.639648" y="170.844727" fill="#A370BA">rel</tspan>
+                    <tspan x="308.84375" y="170.844727" fill="#47AAC6">=</tspan>
+                    <tspan x="317.245117" y="170.844727" fill="#54D16D">“stylesheet”</tspan>
+                    <tspan x="418.061523" y="170.844727" fill="#47AAC6">&gt;</tspan>
                     <tspan x="40" y="194.013672" fill="#47AAC6">&lt;/</tspan>
                     <tspan x="56.8027344" y="194.013672" fill="#B42D30">head</tspan>
                     <tspan x="90.4082031" y="194.013672" fill="#47AAC6">&gt;</tspan>
                     <tspan x="40" y="217.182617" fill="#47AAC6">&lt;</tspan>
                     <tspan x="48.4013672" y="217.182617" fill="#B42D30">body</tspan>
                     <tspan x="82.0068359" y="217.182617" fill="#47AAC6">&gt;</tspan>
-                    <tspan x="40" y="240.351562" fill="#47AAC6">	</tspan>
-                    <tspan x="68" y="240.351562" fill="#4A90E2">&lt;!—- arnaud’s code --&gt;</tspan>
-                    <tspan x="252.830078" y="240.351562" fill="#47AAC6"></tspan>
-                    <tspan x="40" y="263.520508" fill="#47AAC6">	</tspan>
-                    <tspan x="68" y="263.520508" fill="#47AAC6">&lt;</tspan>
-                    <tspan x="76.4013672" y="263.520508" fill="#B42D30">script</tspan>
-                    <tspan x="126.80957" y="263.520508" fill="#47AAC6"> </tspan>
-                    <tspan x="135.210938" y="263.520508" fill="#A370BA">src</tspan>
-                    <tspan x="160.415039" y="263.520508" fill="#47AAC6">=</tspan>
-                    <tspan x="168.816406" y="263.520508" fill="#54D16D">"</tspan>
-                    <tspan x="177.217773" y="263.520508" fill="#54D16D">javascript.js</tspan>
-                    <tspan x="286.435547" y="263.520508" fill="#54D16D">"</tspan>
-                    <tspan x="294.836914" y="263.520508" fill="#47AAC6">&gt;&lt;/</tspan>
-                    <tspan x="320.041016" y="263.520508" fill="#B42D30">script</tspan>
-                    <tspan x="370.449219" y="263.520508" fill="#47AAC6">&gt;</tspan>
-                    <tspan x="378.850586" y="263.520508" fill="#47AAC6"></tspan>
+                    <tspan x="40" y="240.351562" fill="#47AAC6">    </tspan>
+                    <tspan x="73.6054688" y="240.351562" fill="#4A90E2">&lt;!—- arnaud’s code --&gt;</tspan>
+                    <tspan x="258.435547" y="240.351562" fill="#47AAC6"></tspan>
+                    <tspan x="40" y="263.520508" fill="#47AAC6">    </tspan>
+                    <tspan x="73.6054688" y="263.520508" fill="#47AAC6">&lt;</tspan>
+                    <tspan x="82.0068359" y="263.520508" fill="#B42D30">script</tspan>
+                    <tspan x="132.415039" y="263.520508" fill="#47AAC6"> </tspan>
+                    <tspan x="140.816406" y="263.520508" fill="#A370BA">src</tspan>
+                    <tspan x="166.020508" y="263.520508" fill="#47AAC6">=</tspan>
+                    <tspan x="174.421875" y="263.520508" fill="#54D16D">"</tspan>
+                    <tspan x="182.823242" y="263.520508" fill="#54D16D">javascript.js</tspan>
+                    <tspan x="292.041016" y="263.520508" fill="#54D16D">"</tspan>
+                    <tspan x="300.442383" y="263.520508" fill="#47AAC6">&gt;&lt;/</tspan>
+                    <tspan x="325.646484" y="263.520508" fill="#B42D30">script</tspan>
+                    <tspan x="376.054688" y="263.520508" fill="#47AAC6">&gt;</tspan>
+                    <tspan x="384.456055" y="263.520508" fill="#47AAC6"></tspan>
                     <tspan x="40" y="286.689453" fill="#47AAC6">&lt;/</tspan>
                     <tspan x="56.8027344" y="286.689453" fill="#B42D30">body</tspan>
                     <tspan x="90.4082031" y="286.689453" fill="#47AAC6">&gt;</tspan>
