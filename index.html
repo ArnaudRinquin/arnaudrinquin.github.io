@@ -1,96 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
+  <head>
+    <title>Arnaud Rinquin - a web developer</title>
 
-  <title>Arnaud Rinquin - a web developer</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <meta charset="utf-8"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="description"
+      content="The home page of Arnaud Rinquin, web developer"
+    />
+    <meta
+      name="keywords"
+      content="arnaud, rinquin, arnaud rinquin, web developer, developer, webapps, javascript"
+    />
+    <meta name="robots" content="index, follow" />
 
-  <meta name="description" content="The home page of Arnaud Rinquin, web developer somewhere between London and Paris" />
-	<meta name="keywords" content="arnaud, rinquin, arnaud rinquin, web developer, developer, webapps, frontend, javascript" />
-	<meta name="robots" content="index, follow" />
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css" media="screen" title="normalize" charset="utf-8">
-  <link rel="stylesheet" href="/style.css" media="screen" title="normalize" charset="utf-8">
-
-  <link rel="icon" type="image/png" href="/images/favicon.png">
-</head>
-<body>
-
-  <header id="top-nav" class="blue">
-    <nav>
-      <ul class="split">
-        <!-- <li><img class="logo" src="./images/logo.svg"></li> -->
-        <li>
-          <svg class="logo" width="246px" height="287px" viewBox="0 0 246 287" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                  <g id="logo">
-                      <rect id="background" fill="#47A5B8" x="0" y="0" width="246" height="287" rx="8"></rect>
-                      <g id="sign" transform="translate(31.000000, 21.000000)" stroke="#E0EAEC" stroke-width="15">
-                          <path d="M0,152.304984 C57.1953125,152.304984 147.53125,132.238578 168.921875,143.355765 C190.3125,154.472953 201.605469,226.863578 147.53125,226.863578 C93.4570312,226.863578 104.097656,176.236625 72.6992188,182.60967 C41.3007813,188.982715 0,238.023736 0,238.023736" id="r"></path>
-                          <path d="M72.0698292,0.305484951 C72.0698292,0.305484951 67.3523256,151.786717 68.4296528,190.974354 C68.6249073,198.076709 72.0232638,202.400631 72.0698292,202.470982" id="stroke"></path>
-                          <path d="M0,40.5606173 C22.089031,20.3677876 58.1006214,12.0217965 92.4671044,13.0905536 C103.455246,13.4322719 114.275208,14.7364598 124.41814,16.9236209 C158.162885,24.200136 184.413974,41.2497627 184.433594,65.1451478 C184.485451,128.30452 28.3828125,132.78718 0,96.7012429" id="a"></path>
-                      </g>
-                  </g>
-              </g>
-          </svg>
-        </li>
-        <li class="right"><a class="active" href="https://arnaud.rocks/">About</a></li>
-        <li class="right"><a href="https://github.com/ArnaudRinquin/blog">Blog</a></li>
-        <!-- <li class="right"><a href="https://arnaud.rocks/work">Work</a></li> -->
-        <li class="right"><a href="https://arnaud.rocks/resume">Resume</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <section id="iam" class="panel blue">
-    <div class="content">
-      <div class="bigger fancy">I am Arnaud.</div>
-      a web developer
-    </div>
-    <img id="editor" src="./images/editor.svg">
-  </section>
-
-  <section id="hi" class="centered">
-    <img class="avatar" src="./images/avatar.png">
-    <h3 class="big blue-text">Hi.</h3>
-    <div class="serif">
-      I'm a web developer living somewhere between London and France.
-      <br>
-      I have a passion for crafting quality applications for web and mobile.
-    </div>
-  </section>
-
-  <!--main id="canDo">
-    <div class="bigger bluer-text centered">What I can do.</div>
-    <section id="web-apps">
-      <h3 class="big blue-text">Develop Web apps</h3>
-    </section>
-    <section id="mobile-apps">
-      <h3 class="big blue-text">Develop Native apps</h3>
-    </section>
-    <section id="servers">
-      <h3 class="big blue-text">Build servers</h3>
-    </section>
-    <section id="tools">
-      <h3 class="big blue-text">Create tools</h3>
-    </section>
-  </main-->
-
-  <footer class="orange">
-    <nav>
-      <ul>
-        <li><a href="https://github.com/ArnaudRinquin">github</a></li>
-        <li><a href="https://twitter.com/ArnaudRinquin">twitter</a></li>
-        <li><a href="https://www.npmjs.com/~arnaudrinquin">npm</a></li>
-        <li><a href="https://medium.com/@arnaudrinquin">medium</a></li>
-      </ul>
-    </nav>
-    <div class="small copyright">
-      © 2016 <a href="https://arnaud.rocks">Arnaud Rinquin.</a> All rights reserved.
-    </div>
-  </footer>
-</body>
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="p-10">
+    <main>
+      <h1
+        class="
+          pb-10
+          font-extrabold
+          text-gray-900 text-4xl
+          sm:text-5xl
+          md:text-6xl
+        "
+      >
+        👋 I'm Arnaud, a <span class="text-indigo-600">web developer</span>
+      </h1>
+      <p class="text-base text-gray-500 sm:text-lg md:text-xl lg:mx-0">
+        I am senior software engineer at
+        <a class="text-indigo-600" href="https://slite.com">Slite</a>. My works
+        is focused around full stack product development (React, TS, etc...). I
+        used to drive DevOps concerns (Docker, Kubernetes, GCP) but I recently
+        dived into engineering management in which I'm very junior.
+      </p>
+    </main>
+    <footer class="mt-10">
+      <nav>
+        <ul class="flex gap-4 text-indigo-600">
+          <li><a href="https://github.com/ArnaudRinquin">github</a></li>
+          <li><a href="https://twitter.com/ArnaudRinquin">twitter</a></li>
+          <li><a href="https://www.npmjs.com/~arnaudrinquin">npm</a></li>
+          <li><a href="https://medium.com/@arnaudrinquin">medium</a></li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
 </html>
