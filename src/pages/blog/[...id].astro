@@ -1,0 +1,21 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { render } from 'astro:content';
+import { getPosts, formatDate } from '../../data/posts';
+
+export async function getStaticPaths() {
+  return (await getPosts()).map((post) => ({ params: { id: post.id }, props: { post } }));
+}
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<Layout title={post.data.title} description={post.data.description}>
+  <article>
+    <h1 class="mb-2 text-3xl font-semibold">{post.data.title}</h1>
+    <p class="mb-8 text-sm text-muted">
+      <time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time>
+      {post.data.linkedinUrl && <> · <a href={post.data.linkedinUrl} class="underline">Originally on LinkedIn</a></>}
+    </p>
+    <div class="prose"><Content /></div>
+  </article>
+</Layout>

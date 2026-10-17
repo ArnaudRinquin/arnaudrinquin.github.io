@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Placeholder theme until we pick a design direction. */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --color-ink: #1a1a1a;
+  --color-muted: #6b6b6b;
+  --color-paper: #fafaf8;
+  --color-accent: #2f5bea;
+}
+
+html { background: var(--color-paper); color: var(--color-ink); -webkit-font-smoothing: antialiased; }
+h1, h2, h3 { text-wrap: balance; }
+.wrap { margin-inline: auto; width: 100%; max-width: 44rem; padding-inline: 1.25rem; }
+
+@media print {
+  header, footer { display: none; }
+}
