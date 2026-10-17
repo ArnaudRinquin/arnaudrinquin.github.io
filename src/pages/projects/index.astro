@@ -1,17 +1,14 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Prompt from '../../components/Prompt.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
 const projects = (await getCollection('projects')).sort((a, b) => b.data.year - a.data.year);
 ---
-<Layout title="Projects">
-  <h1 class="mb-8 text-3xl font-semibold">Projects</h1>
-  <ul class="space-y-6">
-    {projects.map((p) => (
-      <li>
-        <a href={`/projects/${p.id}/`} class="text-lg font-medium">{p.data.title}</a>
-        <span class="text-sm text-muted">{p.data.year}</span>
-        <p class="text-muted">{p.data.summary}</p>
-      </li>
-    ))}
-  </ul>
+<Layout title="Projects" description="Things I built: side projects, client sites and work.">
+  <Prompt>ls projects/</Prompt>
+  <h1 class="cursor mb-10 font-display text-5xl font-bold tracking-tight">Projects</h1>
+  <div class="grid gap-4 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
+    {projects.map((p) => <ProjectCard project={p} />)}
+  </div>
 </Layout>

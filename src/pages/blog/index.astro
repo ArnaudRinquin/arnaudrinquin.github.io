@@ -1,17 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getPosts, formatDate } from '../../data/posts';
+import Prompt from '../../components/Prompt.astro';
+import PostList from '../../components/PostList.astro';
+import { getPosts } from '../../data/posts';
 const posts = await getPosts();
 ---
-<Layout title="Blog">
-  <h1 class="mb-8 text-3xl font-semibold">Blog</h1>
-  <ul class="space-y-6">
-    {posts.map((p) => (
-      <li>
-        <a href={`/blog/${p.id}/`} class="text-lg font-medium">{p.data.title}</a>
-        <p class="text-muted">{p.data.description}</p>
-        <time class="text-sm text-muted" datetime={p.data.publishedAt.toISOString()}>{formatDate(p.data.publishedAt)}</time>
-      </li>
-    ))}
-  </ul>
+<Layout title="Blog" description="Notes on product engineering, AI agents and dev tooling.">
+  <Prompt>git log --oneline blog/</Prompt>
+  <h1 class="cursor mb-10 font-display text-5xl font-bold tracking-tight">Blog</h1>
+  <PostList posts={posts} />
 </Layout>

@@ -1,34 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Prompt from '../components/Prompt.astro';
+import PostList from '../components/PostList.astro';
+import ProjectCard from '../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
-import { getPosts, formatDate } from '../data/posts';
+import { getPosts } from '../data/posts';
 
-const posts = (await getPosts()).slice(0, 3);
+const posts = (await getPosts()).slice(0, 5);
 const featured = (await getCollection('projects', ({ data }) => data.featured)).sort((a, b) => b.data.year - a.data.year);
 ---
 <Layout>
-  <section class="mb-16">
-    <h1 class="mb-4 text-3xl font-semibold">Hi, I'm Arnaud.</h1>
-    <p class="text-lg text-muted">TODO: short intro — what I do now, what I'm open to.</p>
+  <section class="mb-20">
+    <Prompt>whoami</Prompt>
+    <h1 class="cursor mb-6 font-display text-[clamp(3rem,8vw,7rem)] leading-[0.95] font-bold tracking-tight">Arnaud Rinquin</h1>
+    <p class="max-w-2xl text-lg leading-relaxed text-soft">Product engineer. 15+ years, prototype to scale. Now building agents and AI-first features at Teetsh. Lives in a tmux window in Tours, France.</p>
   </section>
 
   {featured.length > 0 && (
-    <section class="mb-16">
-      <h2 class="mb-4 text-xl font-semibold"><a href="/projects/">Selected projects</a></h2>
-      <ul class="space-y-3">
-        {featured.map((p) => (
-          <li><a href={`/projects/${p.id}/`} class="font-medium">{p.data.title}</a> <span class="text-muted">— {p.data.summary}</span></li>
-        ))}
-      </ul>
+    <section class="mb-20">
+      <Prompt><a href="/projects/">ls projects/</a></Prompt>
+      <div class="grid gap-4 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
+        {featured.map((p) => <ProjectCard project={p} />)}
+      </div>
     </section>
   )}
 
   <section>
-    <h2 class="mb-4 text-xl font-semibold"><a href="/blog/">Latest writing</a></h2>
-    <ul class="space-y-3">
-      {posts.map((p) => (
-        <li><a href={`/blog/${p.id}/`} class="font-medium">{p.data.title}</a> <span class="text-sm text-muted">{formatDate(p.data.publishedAt)}</span></li>
-      ))}
-    </ul>
+    <Prompt><a href="/blog/">git log --oneline blog/</a></Prompt>
+    <PostList posts={posts} />
   </section>
 </Layout>

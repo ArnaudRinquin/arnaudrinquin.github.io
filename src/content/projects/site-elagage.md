@@ -1,6 +1,6 @@
 ---
 title: Touraine Élagage
-summary: TODO — website for a tree-surgery business.
+summary: Website for a tree-surgery business in Touraine.
 year: 2026
 kind: client
 stack: [Astro, Tailwind, Netlify]
@@ -8,4 +8,4 @@ url: https://touraine-elagage.fr
 featured: true
 ---
 
-TODO: the story.
+Static site, fast and cheap to run, built to rank locally.

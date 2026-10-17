@@ -1,12 +1,12 @@
 ---
-import { site, nav } from '../config';
+import { nav } from '../config';
 const path = Astro.url.pathname;
 ---
-<header class="wrap flex flex-wrap items-baseline justify-between gap-4 py-6">
-  <a href="/" class="font-semibold">{site.name}</a>
-  <nav class="flex flex-wrap gap-4 text-sm">
+<header class="wrap flex flex-wrap items-center justify-between gap-4 py-8 text-[15px]">
+  <a href="/" class="font-bold"><span class="text-accent">~/</span>arnaud.rocks</a>
+  <nav class="flex flex-wrap gap-x-5 gap-y-2">
     {nav.map((item) => (
-      <a href={item.href} class:list={[path.startsWith(item.href) ? 'text-ink' : 'text-muted hover:text-ink']}>{item.label}</a>
+      <a href={item.href} class:list={[path.startsWith(item.href) && 'text-accent']}>./{item.label.toLowerCase()}</a>
     ))}
   </nav>
 </header>

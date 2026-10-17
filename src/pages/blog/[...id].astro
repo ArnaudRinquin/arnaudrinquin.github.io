@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Prompt from '../../components/Prompt.astro';
 import { render } from 'astro:content';
 import { getPosts, formatDate } from '../../data/posts';
 
@@ -11,11 +12,13 @@ const { Content } = await render(post);
 ---
 <Layout title={post.data.title} description={post.data.description}>
   <article>
-    <h1 class="mb-2 text-3xl font-semibold">{post.data.title}</h1>
-    <p class="mb-8 text-sm text-muted">
-      <time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time>
-      {post.data.linkedinUrl && <> · <a href={post.data.linkedinUrl} class="underline">Originally on LinkedIn</a></>}
+    <Prompt>cat blog/{post.id}.md</Prompt>
+    <h1 class="mb-4 font-display text-[clamp(2rem,5vw,3.25rem)] leading-tight font-bold tracking-tight">{post.data.title}</h1>
+    <p class="mb-10 text-sm text-dim">
+      <time class="text-date" datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time>
+      {post.data.linkedinUrl && <> · <a href={post.data.linkedinUrl} class="underline underline-offset-4">originally on LinkedIn</a></>}
     </p>
     <div class="prose"><Content /></div>
+    <p class="mt-16"><a href="/blog/" class="text-dim">cd ../</a></p>
   </article>
 </Layout>

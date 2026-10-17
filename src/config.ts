@@ -1,9 +1,9 @@
 export const site = {
   name: "Arnaud Rinquin",
-  description: "TODO: one-line pitch.",
+  description: "Product engineer building agents and AI-first products. Blog, projects and CV.",
   links: {
     linkedin: "https://www.linkedin.com/in/arnaudrinquin",
-    github: "https://github.com/TODO",
+    github: "https://github.com/arnaudrinquin",
     email: "TODO@example.com",
   },
 };

@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://example.com', // TODO: real domain
+  site: 'https://arnaud.rocks',
   trailingSlash: 'always',
   integrations: [sitemap()],
   vite: { plugins: [tailwindcss()] },

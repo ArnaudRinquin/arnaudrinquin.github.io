@@ -1,0 +1,11 @@
+---
+import type { CollectionEntry } from 'astro:content';
+interface Props { project: CollectionEntry<'projects'> }
+const { project: p } = Astro.props;
+const folder = { 'side-project': 'side/', work: 'work/', client: 'client/', talk: 'talks/' }[p.data.kind];
+---
+<a href={`/projects/${p.id}/`} class="flex flex-col gap-2.5 rounded-lg border border-line bg-panel p-6 hover:border-accent">
+  <span class="text-[13px] text-accent">{folder} · {p.data.year}</span>
+  <span class="font-display text-2xl font-bold text-fg">{p.data.title}</span>
+  <span class="text-sm leading-relaxed text-soft">{p.data.summary}</span>
+</a>

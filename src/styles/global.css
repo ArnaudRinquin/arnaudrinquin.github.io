@@ -1,19 +1,61 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/space-grotesk";
 
-/* Placeholder theme until we pick a design direction. */
 @theme {
-  --font-sans: ui-sans-serif, system-ui, sans-serif;
-  --color-ink: #1a1a1a;
-  --color-muted: #6b6b6b;
-  --color-paper: #fafaf8;
-  --color-accent: #2f5bea;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --font-display: "Space Grotesk Variable", system-ui, sans-serif;
+  --color-bg: #111310;
+  --color-panel: #181b16;
+  --color-line: #3a3e36;
+  --color-fg: #ecede6;
+  --color-soft: #bfc3b8;
+  --color-dim: #8f9488;
+  --color-accent: #c6f432;
+  --color-date: #e0b341;
 }
 
-html { background: var(--color-paper); color: var(--color-ink); -webkit-font-smoothing: antialiased; }
+html { background: var(--color-bg); color: var(--color-fg); font-family: var(--font-mono); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--color-accent); color: var(--color-bg); }
+a { transition: color .15s; }
+a:hover { color: var(--color-accent); }
 h1, h2, h3 { text-wrap: balance; }
-.wrap { margin-inline: auto; width: 100%; max-width: 44rem; padding-inline: 1.25rem; }
+.wrap { margin-inline: auto; width: 100%; max-width: 65rem; padding-inline: 1.5rem; }
+
+/* Blinking block cursor after big titles. */
+.cursor::after {
+  content: ""; display: inline-block; width: .5em; height: .85em; margin-left: .08em;
+  background: var(--color-accent); vertical-align: -.05em; animation: blink 1.1s steps(1) infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Long-form copy (posts, project write-ups, /now, /uses). */
+.prose {
+  --tw-prose-body: var(--color-soft);
+  --tw-prose-headings: var(--color-fg);
+  --tw-prose-bold: var(--color-fg);
+  --tw-prose-links: var(--color-accent);
+  --tw-prose-bullets: var(--color-dim);
+  --tw-prose-counters: var(--color-dim);
+  --tw-prose-quotes: var(--color-soft);
+  --tw-prose-quote-borders: var(--color-line);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-code: var(--color-fg);
+  --tw-prose-pre-bg: var(--color-panel);
+  max-width: 68ch;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.prose :where(h2, h3) { font-family: var(--font-display); }
+.prose img { border-radius: .5rem; border: 1px solid var(--color-line); }
+
+@media (prefers-reduced-motion: reduce) {
+  .cursor::after { animation: none; }
+}
 
 @media print {
-  header, footer { display: none; }
+  html { background: #fff; color: #111; }
+  header, footer, .no-print { display: none; }
+  .cursor::after { display: none; }
 }

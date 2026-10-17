@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Prompt from '../../components/Prompt.astro';
 import { getCollection, render } from 'astro:content';
 import { Image } from 'astro:assets';
 
@@ -12,16 +13,18 @@ const { title, summary, year, role, stack, url, repo, cover } = project.data;
 ---
 <Layout title={title} description={summary}>
   <article>
-    <h1 class="mb-2 text-3xl font-semibold">{title}</h1>
-    <p class="mb-6 text-muted">{summary}</p>
-    <dl class="mb-8 grid grid-cols-[auto_1fr] gap-x-4 gap-y-1 text-sm">
-      <dt class="text-muted">Year</dt><dd>{year}</dd>
-      {role && <><dt class="text-muted">Role</dt><dd>{role}</dd></>}
-      {stack.length > 0 && <><dt class="text-muted">Stack</dt><dd>{stack.join(', ')}</dd></>}
-      {url && <><dt class="text-muted">Link</dt><dd><a href={url} class="underline">{new URL(url).host}</a></dd></>}
-      {repo && <><dt class="text-muted">Code</dt><dd><a href={repo} class="underline">Repository</a></dd></>}
+    <Prompt>cat projects/{project.id}/README.md</Prompt>
+    <h1 class="mb-4 font-display text-[clamp(2rem,5vw,3.25rem)] leading-tight font-bold tracking-tight">{title}</h1>
+    <p class="mb-8 text-lg text-soft">{summary}</p>
+    <dl class="mb-10 grid grid-cols-[auto_1fr] gap-x-6 gap-y-1 text-sm">
+      <dt class="text-dim">year</dt><dd>{year}</dd>
+      {role && <><dt class="text-dim">role</dt><dd>{role}</dd></>}
+      {stack.length > 0 && <><dt class="text-dim">stack</dt><dd>{stack.join(', ')}</dd></>}
+      {url && <><dt class="text-dim">url</dt><dd><a href={url} class="text-accent">{new URL(url).host}</a></dd></>}
+      {repo && <><dt class="text-dim">code</dt><dd><a href={repo} class="text-accent">{new URL(repo).pathname.slice(1)}</a></dd></>}
     </dl>
-    {cover && <Image src={cover} alt="" class="mb-8 rounded" />}
+    {cover && <Image src={cover} alt="" class="mb-10 rounded-lg border border-line" />}
     <div class="prose"><Content /></div>
+    <p class="mt-16"><a href="/projects/" class="text-dim">cd ../</a></p>
   </article>
 </Layout>
