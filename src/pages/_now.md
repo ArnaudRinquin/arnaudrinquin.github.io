@@ -1,5 +1,6 @@
 ---
 layout: ../layouts/Prose.astro
+# Hidden (leading _ keeps Astro from routing it). Rename to publish + re-add to nav in src/config.ts.
 title: Now
 description: What I'm focused on at the moment.
 updated: 2026-10-17

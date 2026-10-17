@@ -1,5 +1,6 @@
 ---
 layout: ../layouts/Prose.astro
+# Hidden (leading _ keeps Astro from routing it). Rename to publish + re-add to nav in src/config.ts.
 title: Uses
 description: The tools I use daily to ship software, mostly with AI.
 updated: 2026-10-17
