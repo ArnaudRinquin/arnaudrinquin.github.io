@@ -4,7 +4,7 @@ export const site = {
   links: {
     linkedin: "https://www.linkedin.com/in/arnaudrinquin",
     github: "https://github.com/arnaudrinquin",
-    email: "TODO@example.com",
+    email: "me@arnaud.rocks",
   },
 };
 

@@ -20,7 +20,7 @@ const projects = defineCollection({
     title: z.string(),
     summary: z.string(),
     year: z.number(),
-    kind: z.enum(['side-project', 'work', 'client', 'talk']),
+    kind: z.enum(['side-project', 'work', 'pro-bono', 'talk']),
     role: z.string().optional(),
     stack: z.array(z.string()).default([]),
     url: z.string().url().optional(),
