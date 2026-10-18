@@ -25,6 +25,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
+    <script is:inline>
+      // Apply the saved theme before first paint to avoid a flash.
+      try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch {}
+    </script>
   </head>
   <body class="flex min-h-dvh flex-col">
     <Header />

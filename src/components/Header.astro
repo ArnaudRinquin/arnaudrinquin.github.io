@@ -8,5 +8,22 @@ const path = Astro.url.pathname;
     {nav.map((item) => (
       <a href={item.href} class:list={[path.startsWith(item.href) && 'text-accent']}>./{item.label.toLowerCase()}</a>
     ))}
+    <button id="theme-toggle" type="button" class="cursor-pointer text-dim hover:text-accent" title="Theme: auto follows your system">[auto]</button>
   </nav>
 </header>
+
+<script>
+  // Cycles auto (system) → dark → light. "auto" removes the override.
+  const modes = ['auto', 'dark', 'light'] as const;
+  const button = document.getElementById('theme-toggle')!;
+  const root = document.documentElement;
+  const current = () => (root.dataset.theme as (typeof modes)[number]) ?? 'auto';
+  const render = () => { button.textContent = `[${current()}]`; };
+  render();
+  button.addEventListener('click', () => {
+    const next = modes[(modes.indexOf(current()) + 1) % modes.length];
+    if (next === 'auto') delete root.dataset.theme; else root.dataset.theme = next;
+    try { next === 'auto' ? localStorage.removeItem('theme') : localStorage.setItem('theme', next); } catch {}
+    render();
+  });
+</script>

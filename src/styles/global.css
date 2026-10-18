@@ -3,17 +3,55 @@
 @import "@fontsource-variable/jetbrains-mono";
 @import "@fontsource-variable/space-grotesk";
 
-@theme {
+@theme inline {
   --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
   --font-display: "Space Grotesk Variable", system-ui, sans-serif;
-  --color-bg: #111310;
-  --color-panel: #181b16;
-  --color-line: #3a3e36;
-  --color-fg: #ecede6;
-  --color-soft: #bfc3b8;
-  --color-dim: #8f9488;
-  --color-accent: #c6f432;
-  --color-date: #e0b341;
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-soft: var(--soft);
+  --color-dim: var(--dim);
+  --color-accent: var(--accent);
+  --color-date: var(--date);
+}
+
+/* Catppuccin: Mocha when dark, Latte when light. Follows the OS unless
+   html[data-theme] is set by the header toggle. https://catppuccin.com/palette */
+:root, :root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #1e1e2e;     /* base */
+  --panel: #181825;  /* mantle */
+  --line: #45475a;   /* surface1 */
+  --fg: #cdd6f4;     /* text */
+  --soft: #bac2de;   /* subtext1 */
+  --dim: #9399b2;    /* overlay2 */
+  --accent: #cba6f7; /* mauve */
+  --date: #fab387;   /* peach */
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    color-scheme: light;
+    --bg: #eff1f5;
+    --panel: #e6e9ef;
+    --line: #bcc0cc;
+    --fg: #4c4f69;
+    --soft: #5c5f77;
+    --dim: #7c7f93;
+    --accent: #8839ef;
+    --date: #fe640b;
+  }
+}
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #eff1f5;
+  --panel: #e6e9ef;
+  --line: #bcc0cc;
+  --fg: #4c4f69;
+  --soft: #5c5f77;
+  --dim: #7c7f93;
+  --accent: #8839ef;
+  --date: #fe640b;
 }
 
 html { background: var(--color-bg); color: var(--color-fg); font-family: var(--font-mono); -webkit-font-smoothing: antialiased; }

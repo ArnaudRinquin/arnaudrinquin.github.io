@@ -5,9 +5,9 @@ interface Props { project: CollectionEntry<'projects'> }
 const { project: p } = Astro.props;
 const folder = { 'side-project': 'side/', 'pro-bono': 'pro-bono/', talk: 'talks/' }[p.data.kind];
 ---
-<a href={`/projects/${p.id}/`} class="group flex flex-col overflow-hidden rounded-lg border border-line bg-panel hover:border-accent">
+<a href={`/projects/${p.id}/`} class="flex flex-col overflow-hidden rounded-lg border border-line bg-panel hover:border-accent">
   {p.data.cover && (
-    <Image src={p.data.cover} alt="" width={640} class="aspect-[16/10] w-full border-b border-line object-cover opacity-85 transition-opacity group-hover:opacity-100" />
+    <Image src={p.data.cover} alt="" width={640} class="aspect-[16/10] w-full border-b border-line object-cover" />
   )}
   <span class="flex flex-col gap-2.5 p-6">
     <span class="text-[13px] text-accent">{folder} · {p.data.year}</span>
