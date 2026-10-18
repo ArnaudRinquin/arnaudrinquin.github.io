@@ -25,6 +25,9 @@ const ogImage = new URL(`/og/${ogSlug}.png`, Astro.site);
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonicalURL} />
     <link rel="alternate" type="application/rss+xml" title={site.name} href="/rss.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -45,6 +48,14 @@ const ogImage = new URL(`/og/${ogSlug}.png`, Astro.site);
     <script is:inline>
       // Apply the saved theme before first paint to avoid a flash.
       try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch {}
+      // Blink the favicon's cursor, like the one after the page titles.
+      if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        let on = true;
+        setInterval(() => {
+          on = !on;
+          document.querySelector('link[rel=icon][type="image/svg+xml"]')?.setAttribute('href', on ? '/favicon.svg' : '/favicon-off.svg');
+        }, 550);
+      }
     </script>
   </head>
   <body class="flex min-h-dvh flex-col">
