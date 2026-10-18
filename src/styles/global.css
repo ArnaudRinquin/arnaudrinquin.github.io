@@ -57,7 +57,7 @@
 html { background: var(--color-bg); color: var(--color-fg); font-family: var(--font-mono); -webkit-font-smoothing: antialiased; }
 ::selection { background: var(--color-accent); color: var(--color-bg); }
 a { transition: color .15s; }
-a:hover { color: var(--color-accent); }
+@media (hover: hover) { a:hover { color: var(--color-accent); } }
 h1, h2, h3 { text-wrap: balance; }
 .wrap { margin-inline: auto; width: 100%; max-width: 65rem; padding-inline: 1.5rem; }
 

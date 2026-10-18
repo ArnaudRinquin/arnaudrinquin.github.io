@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 ---
-<Layout title={post.data.title} description={post.data.description}>
+<Layout title={post.data.title} description={post.data.description} publishedAt={post.data.publishedAt}>
   <article>
     <Prompt>cat blog/{post.id}.md</Prompt>
     <h1 class="mb-4 font-display text-[clamp(2rem,5vw,3.25rem)] leading-tight font-bold tracking-tight">{post.data.title}</h1>

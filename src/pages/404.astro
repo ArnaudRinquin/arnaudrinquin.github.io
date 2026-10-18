@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Prompt from '../components/Prompt.astro';
 ---
-<Layout title="Not found">
+<Layout title="Not found" og="index">
   <Prompt>cd {Astro.url.pathname}</Prompt>
   <h1 class="cursor mb-6 font-display text-5xl font-bold tracking-tight">No such file or directory</h1>
   <p><a href="/" class="text-accent">cd ~</a></p>

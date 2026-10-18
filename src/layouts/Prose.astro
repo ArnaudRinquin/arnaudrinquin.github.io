@@ -4,7 +4,7 @@ import Prompt from '../components/Prompt.astro';
 const { frontmatter } = Astro.props;
 const file = frontmatter.title.toLowerCase();
 ---
-<Layout title={frontmatter.title} description={frontmatter.description}>
+<Layout title={frontmatter.title} description={frontmatter.description} og="index">
   <Prompt>cat {file}.md</Prompt>
   <h1 class="cursor mb-3 font-display text-5xl font-bold tracking-tight">{frontmatter.title}</h1>
   {frontmatter.updated && <p class="mb-10 text-sm text-dim">updated <span class="text-date">{frontmatter.updated}</span></p>}
