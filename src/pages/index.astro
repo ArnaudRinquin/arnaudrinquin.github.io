@@ -7,7 +7,7 @@ import { getCollection } from 'astro:content';
 import { getPosts } from '../data/posts';
 
 const posts = (await getPosts()).slice(0, 5);
-const featured = (await getCollection('projects', ({ data }) => data.featured)).sort((a, b) => b.data.year - a.data.year);
+const featured = (await getCollection('projects', ({ data }) => data.featured)).sort((a, b) => a.data.order - b.data.order || b.data.year - a.data.year);
 ---
 <Layout>
   <section class="mb-20">
@@ -16,17 +16,17 @@ const featured = (await getCollection('projects', ({ data }) => data.featured)).
     <p class="max-w-2xl text-lg leading-relaxed text-soft">Product engineer. 15+ years, prototype to scale. Now building agents and AI-first features at Teetsh. Lives in a tmux window in Tours, France.</p>
   </section>
 
+  <section class="mb-20">
+    <Prompt><a href="/blog/">git log --oneline blog/</a></Prompt>
+    <PostList posts={posts} />
+  </section>
+
   {featured.length > 0 && (
-    <section class="mb-20">
+    <section>
       <Prompt><a href="/projects/">ls projects/</a></Prompt>
-      <div class="grid gap-4 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
+      <div class="grid gap-4 sm:grid-cols-2">
         {featured.map((p) => <ProjectCard project={p} />)}
       </div>
     </section>
   )}
-
-  <section>
-    <Prompt><a href="/blog/">git log --oneline blog/</a></Prompt>
-    <PostList posts={posts} />
-  </section>
 </Layout>

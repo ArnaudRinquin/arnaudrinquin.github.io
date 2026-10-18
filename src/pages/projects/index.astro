@@ -3,11 +3,11 @@ import Layout from '../../layouts/Layout.astro';
 import Prompt from '../../components/Prompt.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { getCollection } from 'astro:content';
-const projects = (await getCollection('projects')).sort((a, b) => b.data.year - a.data.year);
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order || b.data.year - a.data.year);
 ---
-<Layout title="Projects" description="Things I built: side projects, pro-bono sites and work.">
+<Layout title="Side projects" description="Things I build on the side: tools, extensions, bots and pro-bono websites.">
   <Prompt>ls projects/</Prompt>
-  <h1 class="cursor mb-10 font-display text-5xl font-bold tracking-tight">Projects</h1>
+  <h1 class="cursor mb-10 font-display text-5xl font-bold tracking-tight">Side projects</h1>
   <div class="grid gap-4 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
     {projects.map((p) => <ProjectCard project={p} />)}
   </div>

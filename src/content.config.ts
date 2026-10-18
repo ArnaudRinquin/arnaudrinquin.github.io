@@ -20,13 +20,15 @@ const projects = defineCollection({
     title: z.string(),
     summary: z.string(),
     year: z.number(),
-    kind: z.enum(['side-project', 'work', 'pro-bono', 'talk']),
+    kind: z.enum(['side-project', 'pro-bono', 'talk']),
     role: z.string().optional(),
     stack: z.array(z.string()).default([]),
     url: z.string().url().optional(),
     repo: z.string().url().optional(),
     cover: image().optional(),
     featured: z.boolean().default(false),
+    // Lower comes first, on the home page and in /projects/.
+    order: z.number().default(99),
   }),
 });
 
