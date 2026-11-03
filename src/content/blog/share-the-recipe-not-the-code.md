@@ -2,6 +2,7 @@
 title: "Share the recipe, not the code"
 description: "I wrote a 'build your own' guide for agents, then stumbled upon a RECIPE.md doing the same. I don't know if it's a convention yet, but I think it should be."
 publishedAt: 2026-11-03
+linkedinUrl: https://www.linkedin.com/feed/update/urn:li:share:7523367800610947073/
 ---
 
 The other day I stumbled upon a [RECIPE.md](https://github.com/Lakris2407/herdr-mods/blob/main/quota/RECIPE.md) in a [herdr](https://herdr.dev) mod. You don't read it to install the mod. You hand it to your agent, and the agent builds it.
