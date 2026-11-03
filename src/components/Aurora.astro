@@ -1,0 +1,30 @@
+---
+// Soft drifting colour washes behind every page. Pure CSS: three large radial
+// gradients move on long, offset loops. Frozen under reduced motion.
+---
+<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<style>
+  .aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
+  .aurora span {
+    position: absolute; width: 70vmax; height: 70vmax; border-radius: 50%;
+    opacity: var(--aurora-opacity, .16);
+    will-change: transform;
+  }
+  .aurora span:nth-child(1) {
+    background: radial-gradient(closest-side, var(--accent), transparent);
+    top: -30vmax; left: -15vmax; animation: drift-a 48s ease-in-out infinite alternate;
+  }
+  .aurora span:nth-child(2) {
+    background: radial-gradient(closest-side, var(--aurora-2), transparent);
+    top: 10vmax; right: -30vmax; animation: drift-b 62s ease-in-out infinite alternate;
+  }
+  .aurora span:nth-child(3) {
+    background: radial-gradient(closest-side, var(--aurora-3), transparent);
+    bottom: -40vmax; left: 15vmax; animation: drift-c 55s ease-in-out infinite alternate;
+  }
+  @keyframes drift-a { to { transform: translate(25vmax, 15vmax) scale(1.15); } }
+  @keyframes drift-b { to { transform: translate(-20vmax, 20vmax) scale(.9); } }
+  @keyframes drift-c { to { transform: translate(15vmax, -20vmax) scale(1.1); } }
+  @media (prefers-reduced-motion: reduce) { .aurora span { animation: none; } }
+</style>
