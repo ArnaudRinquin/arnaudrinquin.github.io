@@ -4,32 +4,32 @@ description: "I wrote a 'build your own' guide for agents, then stumbled upon a 
 publishedAt: 2026-11-03
 ---
 
-The other day I stumbled upon a [RECIPE.md](https://github.com/Lakris2407/herdr-mods/blob/main/quota/RECIPE.md) in a [herdr](https://herdr.dev) mod: not docs to install it, but a brief for an agent to build it.
+The other day I stumbled upon a [RECIPE.md](https://github.com/Lakris2407/herdr-mods/blob/main/quota/RECIPE.md) in a [herdr](https://herdr.dev) mod. You don't read it to install the mod. You hand it to your agent, and the agent builds it.
 
-It made me smile, because I'd written the same kind of thing back in July. I don't know if it's a convention yet, but I think it should be.
+I smiled, because I'd written the same kind of thing back in July. I have no idea if it's a convention yet. I think it should be.
 
 ## My accidental recipe
 
-When I published [slack-to-laptop](/projects/slack-to-laptop/), I added a "Build your own" section to the README: "the architecture is small enough to rebuild in an afternoon, here's the TL;DR to hand your agent". My setup is very specific (my terminal multiplexer, my repos, my Slack), so the code itself is of little use to anyone else. The shape of it, plus the traps I fell into, is what's worth sharing.
+When I published [slack-to-laptop](/projects/slack-to-laptop/), I added a "Build your own" section to the README. It literally said "here's the TL;DR to hand your agent". My setup is full of my own stuff (my terminal multiplexer, my repos, my Slack), so the code is close to useless for anyone else. What's worth taking is the shape of it and the traps I fell into.
 
-This week I moved it to its own [RECIPE.md](https://github.com/ArnaudRinquin/slack-to-laptop/blob/main/RECIPE.md): the pitch, the ingredients and why each one is there, the architecture, and the gotchas.
+Today I moved that section to its own [RECIPE.md](https://github.com/ArnaudRinquin/slack-to-laptop/blob/main/RECIPE.md).
 
 ## The prompt is the contribution
 
-That file connected two other things in my head.
+Two other things came back to me when I read that file.
 
-The first one is a maintainer's proposal from earlier this year: send [prompt requests instead of pull requests](https://jpos.org/blog/2026/02/prompt-requests). If the code was generated, reviewing it means reverse-engineering the intent. Send the intent, the context and the prompt, and the maintainer can generate it on their side, their way.
+A few months ago, an open source maintainer [suggested prompt requests instead of pull requests](https://jpos.org/blog/2026/02/prompt-requests). If the code was generated anyway, reviewing it means guessing the intent behind it. Just send the intent and the prompt, and they'll generate it themselves, their way.
 
-The second one is how tools are starting to get customised. herdr's mods are meant to be added by your agent: you hand it one line, it reads the recipe and builds the mod into your own layout, adapted to it. [Omarchy](https://omarchy.org) gives me the same feeling: it's less a product you install as-is than a base your agent bends to your taste.
+Then there's how tools get customised now. herdr mods are meant to be installed by your agent: it reads the recipe and builds the mod into your layout, bent to fit. [Omarchy](https://omarchy.org) gives me the same vibe. You don't really install it as-is, you start from it and let your agent make it yours.
 
-Put together: code is becoming cheap and personal. Two people rebuilding the same tool from the same recipe will end up with two different programs, each fitting its owner. A fork drifts away from you; a recipe adapts to you. What's worth sharing is what can't be regenerated: the decisions and the scars.
+So code is getting cheap, and it's getting personal. Give the same recipe to two people's agents and you get two different programs, each one fitting its owner. Forks drift. Recipes adapt. The part worth sharing is the part you can't regenerate: why you made the choices you made, and what bit you along the way.
 
-## What goes in a good recipe
+## What I put in mine
 
-- **The pitch.** What it does and for whom, in one paragraph, so the agent knows what "done" looks like.
-- **Ingredients, with the why.** Not just the libraries, the reason each one is there. That's what lets the agent swap one out sensibly.
-- **The shape.** Components, the data flowing between them, what's persisted.
-- **What's mine.** Machine-specific paths, tools and conventions, flagged as things to replace.
-- **Watch out.** The section that cost hours: the env var missing when the app is started from the Dock, the API that lies about its reset time. This is the part an agent can't guess.
+- A one-paragraph pitch, so the agent knows what "done" looks like.
+- The ingredients, and why each one is there. That's what lets an agent swap one out without breaking everything.
+- The architecture: the pieces, what flows between them, what gets saved to disk.
+- Everything that's specific to my machine, flagged as "replace this".
+- The gotchas. This is the section that cost me hours, and the one an agent can't guess. The herdr recipe has a great example: an app launched from the Dock doesn't get your shell's `PATH`.
 
-Next time you build something you're proud of, don't stop at the code. Ship the recipe.
+If you build something you like, write the recipe. It's probably the most useful file in the repo.
