@@ -44,7 +44,7 @@
     --date: #fe640b;
     --aurora-2: #1e66f5;
     --aurora-3: #179299;
-    --aurora-opacity: .12;
+    --aurora-opacity: .2;
   }
 }
 :root[data-theme="light"] {
@@ -59,7 +59,7 @@
   --date: #fe640b;
   --aurora-2: #1e66f5;
   --aurora-3: #179299;
-  --aurora-opacity: .12;
+  --aurora-opacity: .2;
 }
 
 html { background: var(--color-bg); color: var(--color-fg); font-family: var(--font-mono); -webkit-font-smoothing: antialiased; }
