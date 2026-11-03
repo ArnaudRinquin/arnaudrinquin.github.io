@@ -31,4 +31,6 @@ Here's what happens after every merge:
 
 A real example from this week: Valere wanted to validate a risky update by hand on staging. He put a hold from Slack, the trains kept being tested, and he released it when he was done. Prod picked up where it left off, with no ceremony.
 
+![Thomas in Slack: train #113 goes red and pings the on-call dev, the dogfood report lists findings and what to check by hand, then Valère puts a hold on every service and releases it](../../assets/blog/meet-thomas-the-release-train-that-ships-to-prod-on-its-own-2.jpg)
+
 The last point: I took Thomas from first commit to deploying prod in four days, and I've reshaped it every day since, based on what the team asked for. Today's change was fewer pings and shorter reports. When automation is this cheap to adapt, it follows the team instead of freezing it.
