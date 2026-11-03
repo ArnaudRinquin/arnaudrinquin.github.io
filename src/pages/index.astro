@@ -3,11 +3,11 @@ import Layout from '../layouts/Layout.astro';
 import Prompt from '../components/Prompt.astro';
 import PostList from '../components/PostList.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { getCollection } from 'astro:content';
+import { getProjects } from '../data/projects';
 import { getPosts } from '../data/posts';
 
 const posts = (await getPosts()).slice(0, 5);
-const featured = (await getCollection('projects', ({ data }) => data.featured)).sort((a, b) => a.data.order - b.data.order || b.data.year - a.data.year);
+const featured = await getProjects(({ data }) => data.featured);
 ---
 <Layout>
   <section class="mb-20">

@@ -1,11 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Prompt from '../../components/Prompt.astro';
-import { getCollection, render } from 'astro:content';
+import { render } from 'astro:content';
+import { getProjects } from '../../data/projects';
 import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
-  return (await getCollection('projects')).map((project) => ({ params: { id: project.id }, props: { project } }));
+  return (await getProjects()).map((project) => ({ params: { id: project.id }, props: { project } }));
 }
 const { project } = Astro.props;
 const { Content } = await render(project);

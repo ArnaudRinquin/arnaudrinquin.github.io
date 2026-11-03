@@ -2,8 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 import Prompt from '../../components/Prompt.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { getCollection } from 'astro:content';
-const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order || b.data.year - a.data.year);
+import { getProjects } from '../../data/projects';
+const projects = await getProjects();
 ---
 <Layout title="Side projects" description="Things I build on the side: tools, extensions, bots and pro-bono websites.">
   <Prompt>ls projects/</Prompt>

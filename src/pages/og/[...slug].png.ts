@@ -1,12 +1,12 @@
 // Open Graph images (1200×630), one per page, rendered at build time.
 // Layout.astro points og:image at /og/<page path>.png.
 import type { APIRoute, GetStaticPaths } from 'astro';
-import { getCollection } from 'astro:content';
 import { readFileSync } from 'node:fs';
 import satori from 'satori';
 import sharp from 'sharp';
 import { site } from '../../config';
 import { getPosts, formatDate } from '../../data/posts';
+import { getProjects } from '../../data/projects';
 
 // Catppuccin Mocha, same as the site's dark theme.
 const c = { bg: '#1e1e2e', line: '#45475a', fg: '#cdd6f4', soft: '#bac2de', dim: '#9399b2', accent: '#cba6f7', date: '#fab387' };
@@ -24,7 +24,7 @@ interface Card { prompt: string; title: string; subtitle?: string; meta?: string
 export const getStaticPaths = (async () => {
   const page = (slug: string, card: Card) => ({ params: { slug }, props: card });
   const posts = await getPosts();
-  const projects = await getCollection('projects');
+  const projects = await getProjects();
   return [
     page('index', { prompt: 'whoami', title: site.name, subtitle: site.description }),
     page('blog', { prompt: 'git log --oneline blog/', title: 'Blog', subtitle: 'Notes on product engineering, AI agents and dev tooling.' }),

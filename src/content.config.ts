@@ -29,6 +29,7 @@ const projects = defineCollection({
     featured: z.boolean().default(false),
     // Lower comes first, on the home page and in /projects/.
     order: z.number().default(99),
+    draft: z.boolean().default(false),
   }),
 });
 
