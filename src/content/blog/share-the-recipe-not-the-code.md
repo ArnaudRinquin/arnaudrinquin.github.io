@@ -1,12 +1,12 @@
 ---
 title: "Share the recipe, not the code"
-description: "I wrote a 'build your own' guide for my agent without knowing it had a name. Then I found RECIPE.md files in the wild, and they might be the most valuable thing to share now."
+description: "I wrote a 'build your own' guide for agents, then stumbled upon a RECIPE.md doing the same. I don't know if it's a convention yet, but I think it should be."
 publishedAt: 2026-11-03
 ---
 
-The other day I stumbled upon a [RECIPE.md](https://github.com/Lakris2407/herdr-mods/blob/main/quota/RECIPE.md) in a repo of [herdr](https://herdr.dev) mods. It describes a small status-bar widget that shows your coding agents' quotas, down to the pixel: sizes, colours, refresh rules, edge cases. It's not documentation for someone who wants to install the widget. It's a brief for an agent that's going to build it.
+The other day I stumbled upon a [RECIPE.md](https://github.com/Lakris2407/herdr-mods/blob/main/quota/RECIPE.md) in a [herdr](https://herdr.dev) mod: not docs to install it, but a brief for an agent to build it.
 
-It made me smile, because I'd written the same thing back in July without knowing it had a name.
+It made me smile, because I'd written the same kind of thing back in July. I don't know if it's a convention yet, but I think it should be.
 
 ## My accidental recipe
 
