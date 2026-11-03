@@ -1,30 +1,129 @@
 ---
-// Soft drifting colour washes behind every page. Pure CSS: three large radial
-// gradients move on long, offset loops. Frozen under reduced motion.
+// Soft drifting colour washes behind every page.
+// - CSS: three large radial gradients drift on long, offset loops.
+// - JS (mouse only): a lagging glow follows the pointer, the drifting glows
+//   ease away from it, and it brightens over links.
+// - Scroll: glows lag behind the page and the hues slowly shift.
+// Everything is frozen under reduced motion.
 ---
-<div class="aurora" aria-hidden="true"><span></span><span></span><span></span></div>
+<div class="aurora" aria-hidden="true">
+  <div class="blob"><span></span></div>
+  <div class="blob"><span></span></div>
+  <div class="blob"><span></span></div>
+  <i class="follow"></i>
+</div>
+
+<script>
+  const root = document.querySelector('.aurora') as HTMLElement;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const blobs = [...root.querySelectorAll<HTMLElement>('.blob')];
+  const follow = root.querySelector('.follow') as HTMLElement;
+
+  const vmax = () => Math.max(innerWidth, innerHeight) / 100;
+  const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
+
+  let mouse: { x: number; y: number } | null = null;
+  let hot = false; // pointer over a link or card
+  const glow = { x: innerWidth / 2, y: innerHeight / 2, o: 0, s: 1 };
+  const push = blobs.map(() => ({ x: 0, y: 0 }));
+  let raf = 0;
+
+  const tick = () => {
+    raf = 0;
+    let moving = false;
+    const ease = (cur: number, to: number, k: number) => {
+      const next = lerp(cur, to, k);
+      if (Math.abs(next - to) > 0.05) moving = true;
+      return Math.abs(next - to) > 0.05 ? next : to;
+    };
+
+    // Read layout before writing styles, so each frame stays one pass.
+    const rects = mouse ? blobs.map((b) => b.firstElementChild!.getBoundingClientRect()) : [];
+
+    // Lagging glow under the pointer.
+    if (mouse) { glow.x = ease(glow.x, mouse.x, 0.04); glow.y = ease(glow.y, mouse.y, 0.04); }
+    glow.o = ease(glow.o * 100, mouse ? (hot ? 60 : 35) : 0, 0.05) / 100;
+    glow.s = ease(glow.s * 100, hot ? 115 : 100, 0.06) / 100;
+    follow.style.transform = `translate(${glow.x}px, ${glow.y}px) translate(-50%, -50%) scale(${glow.s})`;
+    follow.style.opacity = String(glow.o);
+
+    // Drifting glows ease away from the pointer.
+    const reach = 45 * vmax(), max = 12 * vmax();
+    blobs.forEach((b, i) => {
+      let tx = 0, ty = 0;
+      if (mouse) {
+        const r = rects[i];
+        const dx = r.left + r.width / 2 - push[i].x - mouse.x;
+        const dy = r.top + r.height / 2 - push[i].y - mouse.y;
+        const d = Math.hypot(dx, dy) || 1;
+        const f = Math.max(0, 1 - d / reach) * max;
+        tx = (dx / d) * f; ty = (dy / d) * f;
+      }
+      push[i].x = ease(push[i].x, tx, 0.03);
+      push[i].y = ease(push[i].y, ty, 0.03);
+      b.style.translate = `${push[i].x}px ${push[i].y}px`;
+    });
+
+    if (moving || mouse) raf = requestAnimationFrame(tick);
+  };
+  const wake = () => { if (!raf && !reduce.matches) raf = requestAnimationFrame(tick); };
+
+  addEventListener('pointermove', (e) => {
+    if (e.pointerType !== 'mouse') return;
+    if (!mouse) { glow.x = e.clientX; glow.y = e.clientY; }
+    mouse = { x: e.clientX, y: e.clientY };
+    hot = !!(e.target as Element).closest?.('main a, main button');
+    wake();
+  }, { passive: true });
+  document.documentElement.addEventListener('pointerleave', () => { mouse = null; hot = false; wake(); });
+
+  // Scroll: glows lag behind the content and hues drift through the palette.
+  const onScroll = () => {
+    if (reduce.matches) return;
+    const max = document.documentElement.scrollHeight - innerHeight || 1;
+    root.style.setProperty('--scroll-y', `${-scrollY * 0.12}px`);
+    root.style.setProperty('--hue', `${(scrollY / max) * 50}deg`);
+  };
+  addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+</script>
 
 <style>
-  .aurora { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
-  .aurora span {
-    position: absolute; width: 60vmax; height: 60vmax; border-radius: 50%;
+  .aurora {
+    position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+    filter: hue-rotate(var(--hue, 0deg));
+  }
+  .blob { position: absolute; inset: 0; transform: translateY(var(--scroll-y, 0px)); }
+  .blob span, .follow { position: absolute; border-radius: 50%; }
+  .blob span {
+    width: 60vmax; height: 60vmax;
     opacity: var(--aurora-opacity, .26);
     will-change: transform;
   }
-  .aurora span:nth-child(1) {
+  .blob:nth-child(1) span {
     background: radial-gradient(closest-side, var(--accent), transparent);
     top: -30vmax; left: -15vmax; animation: drift-a 22s ease-in-out infinite alternate;
   }
-  .aurora span:nth-child(2) {
+  .blob:nth-child(2) span {
     background: radial-gradient(closest-side, var(--aurora-2), transparent);
     top: 10vmax; right: -30vmax; animation: drift-b 28s ease-in-out infinite alternate;
   }
-  .aurora span:nth-child(3) {
+  .blob:nth-child(3) span {
     background: radial-gradient(closest-side, var(--aurora-3), transparent);
     bottom: -40vmax; left: 15vmax; animation: drift-c 25s ease-in-out infinite alternate;
   }
   @keyframes drift-a { to { transform: translate(35vmax, 20vmax) scale(1.2); } }
   @keyframes drift-b { to { transform: translate(-30vmax, 25vmax) scale(.85); } }
   @keyframes drift-c { to { transform: translate(20vmax, -30vmax) scale(1.15); } }
-  @media (prefers-reduced-motion: reduce) { .aurora span { animation: none; } }
+
+  .follow {
+    top: 0; left: 0; width: 60vmax; height: 60vmax; opacity: 0;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) calc(var(--aurora-opacity, .26) * 100%), transparent), transparent);
+    will-change: transform, opacity;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .blob span { animation: none; }
+    .follow { display: none; }
+  }
 </style>
