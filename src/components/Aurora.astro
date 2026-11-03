@@ -4,6 +4,7 @@
 // - JS (mouse only): a lagging glow follows the pointer, the drifting glows
 //   ease away from it, and it brightens over links.
 // - Scroll: glows lag behind the page and the hues slowly shift.
+// - Click/tap on empty space: a faint bloom of light.
 // Everything is frozen under reduced motion.
 ---
 <div class="aurora" aria-hidden="true">
@@ -87,6 +88,22 @@
   addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  // Click/tap on empty space: a faint bloom of light that swells and fades.
+  addEventListener('pointerdown', (e) => {
+    if (reduce.matches || (e.target as Element).closest?.('a, button, input, textarea, select, img')) return;
+    const bloom = document.createElement('b');
+    bloom.className = 'bloom';
+    bloom.style.left = `${e.clientX}px`; bloom.style.top = `${e.clientY}px`;
+    root.append(bloom);
+    bloom.animate(
+      [
+        { transform: 'translate(-50%, -50%) scale(.5)', opacity: 0 },
+        { transform: 'translate(-50%, -50%) scale(.8)', opacity: 1, offset: 0.25 },
+        { transform: 'translate(-50%, -50%) scale(1.2)', opacity: 0 },
+      ],
+      { duration: 2600, easing: 'ease-out' },
+    ).onfinish = () => bloom.remove();
+  });
 </script>
 
 <style>
@@ -121,6 +138,10 @@
     top: 0; left: 0; width: 60vmax; height: 60vmax; opacity: 0;
     background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) calc(var(--aurora-opacity, .26) * 100%), transparent), transparent);
     will-change: transform, opacity;
+  }
+  :global(.aurora .bloom) {
+    position: absolute; width: 50vmax; height: 50vmax; border-radius: 50%; opacity: 0;
+    background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) calc(var(--aurora-opacity, .26) * 80%), transparent), transparent);
   }
   @media (prefers-reduced-motion: reduce) {
     .blob span { animation: none; }
