@@ -13,18 +13,18 @@
   }
   .aurora span:nth-child(1) {
     background: radial-gradient(closest-side, var(--accent), transparent);
-    top: -30vmax; left: -15vmax; animation: drift-a 48s ease-in-out infinite alternate;
+    top: -30vmax; left: -15vmax; animation: drift-a 22s ease-in-out infinite alternate;
   }
   .aurora span:nth-child(2) {
     background: radial-gradient(closest-side, var(--aurora-2), transparent);
-    top: 10vmax; right: -30vmax; animation: drift-b 62s ease-in-out infinite alternate;
+    top: 10vmax; right: -30vmax; animation: drift-b 28s ease-in-out infinite alternate;
   }
   .aurora span:nth-child(3) {
     background: radial-gradient(closest-side, var(--aurora-3), transparent);
-    bottom: -40vmax; left: 15vmax; animation: drift-c 55s ease-in-out infinite alternate;
+    bottom: -40vmax; left: 15vmax; animation: drift-c 25s ease-in-out infinite alternate;
   }
-  @keyframes drift-a { to { transform: translate(25vmax, 15vmax) scale(1.15); } }
-  @keyframes drift-b { to { transform: translate(-20vmax, 20vmax) scale(.9); } }
-  @keyframes drift-c { to { transform: translate(15vmax, -20vmax) scale(1.1); } }
+  @keyframes drift-a { to { transform: translate(35vmax, 20vmax) scale(1.2); } }
+  @keyframes drift-b { to { transform: translate(-30vmax, 25vmax) scale(.85); } }
+  @keyframes drift-c { to { transform: translate(20vmax, -30vmax) scale(1.15); } }
   @media (prefers-reduced-motion: reduce) { .aurora span { animation: none; } }
 </style>
