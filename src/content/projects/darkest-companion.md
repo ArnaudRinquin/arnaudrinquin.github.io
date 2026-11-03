@@ -1,7 +1,7 @@
 ---
 title: Darkest Companion
 summary: "Curios and provisions helper for Darkest Dungeon: what to use on which curio, and what to pack before each expedition."
-year: 2026
+year: 2016
 kind: side-project
 stack: [Astro, TypeScript]
 url: https://arnaud.rocks/darkest-companion/
