@@ -9,6 +9,6 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
   <Prompt>ls projects/</Prompt>
   <h1 class="cursor mb-10 font-display text-5xl font-bold tracking-tight">Side projects</h1>
   <div class="grid gap-4 sm:grid-cols-[repeat(auto-fit,minmax(280px,1fr))]">
-    {projects.map((p) => <ProjectCard project={p} />)}
+    {projects.map((p, i) => <ProjectCard project={p} priority={i < 2} />)}
   </div>
 </Layout>

@@ -23,7 +23,7 @@ const { title, summary, year, role, stack, url, repo, cover } = project.data;
       {url && <><dt class="text-dim">url</dt><dd><a href={url} class="text-accent">{new URL(url).host}</a></dd></>}
       {repo && <><dt class="text-dim">code</dt><dd><a href={repo} class="text-accent">{new URL(repo).pathname.slice(1)}</a></dd></>}
     </dl>
-    {cover && <Image src={cover} alt="" class="mb-10 rounded-lg border border-line" />}
+    {cover && <Image src={cover} alt="" widths={[640, 992, 1600, 1984]} sizes="(min-width: 1040px) 992px, calc(100vw - 48px)" loading="eager" fetchpriority="high" class="mb-10 rounded-lg border border-line" />}
     <div class="prose"><Content /></div>
     <p class="mt-16"><a href="/projects/" class="text-dim">cd ../</a></p>
   </article>
