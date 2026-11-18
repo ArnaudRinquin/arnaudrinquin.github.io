@@ -9,8 +9,8 @@ Developer Experience at early-stage startups is underrated. Here's why I priorit
 
 When you're a small team moving fast, friction points sneak up on you. Here's what we were dealing with:
 
-🔴 E2E tests ran on staging... after merge. Too late. 
-🔴 Personal GitHub repo meant no Slack notifications. PRs sat waiting. 
+🔴 E2E tests ran on staging... after merge. Too late.\
+🔴 Personal GitHub repo meant no Slack notifications. PRs sat waiting.\
 🔴 One staging environment for everyone. Constant bottlenecks.
 
 Here's what I shipped:

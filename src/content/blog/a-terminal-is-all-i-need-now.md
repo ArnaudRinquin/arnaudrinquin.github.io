@@ -11,9 +11,9 @@ So I went all in: Ghostty + tmux as my entire dev environment. No IDE. Just a te
 
 Here's what makes it work — worktrunk (https://worktrunk.dev), a git worktree manager with lifecycle hooks.
 
-On worktree creation, worktrunk automatically:
-→ Runs pnpm install
-→ Prepares a unique set of ports and .env variables so I can run multiple branches simultaneously with zero conflicts
+On worktree creation, worktrunk automatically:\
+→ Runs pnpm install\
+→ Prepares a unique set of ports and .env variables so I can run multiple branches simultaneously with zero conflicts\
 → Spins up a tmux window (named after the worktree) with 4 panes: shell, Claude Code, lazygit, and a homemade TUI for quick service monitoring
 
 Every feature branch gets a full, isolated dev environment in seconds. And when the worktree is destroyed, worktrunk cleans up the tmux window automatically. Nothing lingers.

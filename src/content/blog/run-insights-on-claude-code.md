@@ -21,7 +21,7 @@ The report breaks down what's working, what's not, and gives you concrete next s
 
 It even suggests features you're not using yet. In my case: hooks to auto-run type checks after edits, custom skills for my PR workflow, and headless mode for CI auto-fixes.
 
-The "On the Horizon" section is what got me most excited — it maps your current patterns to workflows that are becoming possible: autonomous test-driven implementation loops, parallel agents splitting backend and frontend work against a shared contract.
+The "On the Horizon" section is what got me most excited — it maps your current patterns to workflows that are becoming possible: autonomous test-driven implementation loops, parallel agents splitting backend and frontend work against a shared contract.\
 It's basically a personalized coaching session on how to get more out of Claude Code.
 
 Run /insights. You'll learn something.
