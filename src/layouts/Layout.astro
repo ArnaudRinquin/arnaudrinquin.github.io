@@ -4,6 +4,7 @@ import { site } from '../config';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Pearl from '../components/Pearl.astro';
+import Lightbox from '../components/Lightbox.astro';
 
 interface Props {
   title?: string;
@@ -64,5 +65,6 @@ const ogImage = new URL(`/og/${ogSlug}.png`, Astro.site);
     <Header />
     <main class="wrap flex-1 py-10"><slot /></main>
     <Footer />
+    <Lightbox />
   </body>
 </html>
