@@ -4,6 +4,7 @@ description: "I built code mode into the Teetsh agent in a week: a Wasm sandbox,
 publishedAt: 2026-11-18
 tags: [ai, agents, teetsh]
 draft: false
+linkedinUrl: https://www.linkedin.com/posts/arnaudrinquin_our-ai-agent-at-teetsh-can-finally-count-share-7528788800282562562-Aa01/
 ---
 
 Ask an LLM agent "how many maths lessons do I have left before Christmas, bank holidays excluded?" and you'll get a confident number. It'll probably be wrong, too. The agent reads ten timetables one tool call at a time, holds them all in context, and counts in its head.
