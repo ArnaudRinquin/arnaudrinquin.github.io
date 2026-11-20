@@ -2,6 +2,7 @@
 title: "Don't buy a code factory, assemble one"
 description: "Everyone is talking about code factories. After a year of rebuilding how I work with AI, I think we're mixing up three different things, and only some of them should be shared."
 publishedAt: 2026-11-20
+linkedinUrl: https://www.linkedin.com/feed/update/urn:li:activity:7529539254272688128/
 ---
 
 About a year ago, my AI workflow was opening a Claude instance and talking to it. That's it.
