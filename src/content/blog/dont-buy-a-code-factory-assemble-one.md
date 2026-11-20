@@ -6,21 +6,23 @@ publishedAt: 2026-11-20
 
 About a year ago, my AI workflow was opening a Claude instance and talking to it. That's it.
 
-Then we started rebuilding the way we code and ship at Teetsh from scratch. We're still at it. I've changed my workflow a dozen times this year, probably more. Some setups lived a month. Some barely outlived the next big change by a couple of weeks. And that's fine.
+Then we started rebuilding the way we code and ship at [Teetsh](https://teetsh.com) from scratch. We're still at it. I've changed my workflow a dozen times this year, probably more. Some setups lived a month. Some barely outlived the next big change by a couple of weeks. And that's fine.
 
-Now everyone's talking about code factories. High-level orchestration, fleets of agents, tickets in, pull requests out. I've looked at what's on sale. We built one internally too. It got adopted, but not fully, and somewhere along the way we lost track of it.
+Now everyone's talking about code factories. High-level orchestration, fleets of agents, tickets in, pull requests out. I've looked at what's on sale. We built one internally too. It's maintained, and our CEO and others use it every day. I never really adopted it.
 
 I've been thinking about why. My take: we're putting very different things in the same box, and calling the box a factory.
 
 ## The black box problem
 
-The first few times I tried one of these tools, it went like this. The agent asked me a few questions, disappeared for a while, and came back with a result.
+The first few times I tried one of these tools, it went like this: the agent asked me a few questions, disappeared for a while, and came back with a result.
 
 Maybe it was just an impression. Maybe it was the UI. To be fair, the chat bots I use today also go away and come back. But back then, I couldn't easily dig into what had been done. The code was written somewhere that wasn't mine: not my machine, not my localhost, not my terminal. Every tool had a cut somewhere, and past that cut, going deeper was either impossible or tedious enough that I gave up.
 
 In July I wrote that [not reading the code is nothing new](/blog/not-reading-the-code-is-nothing-new/). I still believe it. But there's a catch I didn't spell out: I'm fine not reading the code because I *can* read it, any time, in seconds.
 
 Trust doesn't come from looking. It comes from knowing you can look.
+
+There was a second reason, and it's the same one in disguise: I hadn't built it. The box was handed to me, finished. I couldn't open it, and I hadn't put it together, so I had no way to earn my own trust in it. Being able to dig in and having assembled the thing yourself are two roads to the same place.
 
 <figure class="wf-cut" style="margin:2rem 0">
 <div style="display:flex;flex-wrap:wrap;gap:1.5rem;justify-content:center">
@@ -75,6 +77,8 @@ That's pretty much what I did all year. One brick at a time, each step checked b
 It's how I ended up on [Orca](https://orca.dev), first with plain worktrees. It stayed close to the code. I never felt blind. I could dogfood everything and use my own skills.
 
 There was still friction though. I spent a bit too much time managing worktrees myself. Even with skills that opened one and started Claude on a new piece of work, it was still a bit manual.
+
+And keeping track was just as hard. Which topics were in flight, which ones were waiting on me, and in which worktree and which conversation each one lived. With a dozen things going in parallel, I was the index, and I kept losing entries.
 
 Then I tried Orca's bots, and two things clicked.
 
@@ -176,11 +180,11 @@ Trying to build one vertical from the codebase all the way up to strategy is an 
 
 You need the vision across the company. You don't need one tool to carry it.
 
-## Everything has to be swappable
+## Everything has to be swappable and interoperable
 
 Today I love Claude Code. Tomorrow, I don't know. Today I love Orca. Tomorrow, I don't know.
 
-So every piece of the puzzle has to be replaceable. And the shape of the puzzle changes too, because the tech moves, the ecosystem moves, and we get new ideas every day about how to build things.
+So every piece of the puzzle has to be replaceable, and interoperable: it has to talk to the others through open, boring interfaces (git, files, MCP) so you can pull one out without breaking the rest. And the shape of the puzzle changes too, because the tech moves, the ecosystem moves, and we get new ideas every day about how to build things.
 
 If you want to keep the word "factory", fine. But it's not a black box. It's an assembly you can take apart. Think about your problems layer by layer, and keep the freedom to change how you solve each one.
 
