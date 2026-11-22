@@ -47,6 +47,7 @@ const ogImage = new URL(`/og/${ogSlug}.png`, Astro.site);
     <meta name="twitter:title" content={title ?? site.name} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
+    {import.meta.env.PROD && <script is:inline defer src="https://edge.arnaud.codes/app.js" data-website-id="3a597434-de8e-46c2-a118-7b592bc6e53e"></script>}
     <script is:inline>
       // Apply the saved theme before first paint to avoid a flash.
       try { const t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch {}
