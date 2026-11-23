@@ -1,4 +1,5 @@
-import { defineCollection, z } from 'astro:content';
+import { defineCollection } from 'astro:content';
+import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 const blog = defineCollection({
@@ -9,7 +10,7 @@ const blog = defineCollection({
     publishedAt: z.coerce.date(),
     tags: z.array(z.string()).default([]),
     // Original LinkedIn post, when the article was first published there.
-    linkedinUrl: z.string().url().optional(),
+    linkedinUrl: z.url().optional(),
     draft: z.boolean().default(false),
   }),
 });
@@ -23,8 +24,8 @@ const projects = defineCollection({
     kind: z.enum(['side-project', 'pro-bono', 'talk']),
     role: z.string().optional(),
     stack: z.array(z.string()).default([]),
-    url: z.string().url().optional(),
-    repo: z.string().url().optional(),
+    url: z.url().optional(),
+    repo: z.url().optional(),
     cover: image().optional(),
     featured: z.boolean().default(false),
     // Lower comes first, on the home page and in /projects/.
