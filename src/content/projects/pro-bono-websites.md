@@ -11,6 +11,8 @@ order: 4
 
 Now and then I build a website for free for someone who needs one and can't easily get it otherwise. They're small static sites: fast, cheap to host and easy to maintain.
 
+They're not the best websites out there, and I didn't spend much time on them. But they're online.
+
 ## [MPSB](https://mpsolsbetons.fr)
 
 My in-laws' concrete flooring business in Normandy.
@@ -29,7 +31,7 @@ A tree surgeon who had been scammed by a previous web agency.
 
 ![touraine-elagage.fr](../../assets/projects/pro-bono-websites/touraine-elagage.png)
 
-## BØ Sports Social Club <span class="ml-2 rounded border border-date px-1.5 align-middle font-mono text-[13px] font-normal text-date">deployment pending</span>
+## [BØ Sports Social Club](https://bo-club.netlify.app) <span class="ml-2 rounded border border-date px-1.5 align-middle font-mono text-[13px] font-normal text-date">deployment pending</span>
 
 My squash club.
 
