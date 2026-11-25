@@ -29,8 +29,8 @@ A tree surgeon who had been scammed by a previous web agency.
 
 ![touraine-elagage.fr](../../assets/projects/pro-bono-websites/touraine-elagage.png)
 
-## [BØ Sports Social Club](https://www.bo-club.fr)
+## BØ Sports Social Club <span class="ml-2 rounded border border-date px-1.5 align-middle font-mono text-[13px] font-normal text-date">deployment pending</span>
 
 My squash club.
 
-![bo-club.fr](../../assets/projects/pro-bono-websites/bo-club.png)
+![The BØ Sports Social Club site, not live yet](../../assets/projects/pro-bono-websites/bo-club.png)
