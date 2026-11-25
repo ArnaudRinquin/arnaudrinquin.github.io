@@ -11,7 +11,7 @@ const folder = { 'side-project': 'side/', 'pro-bono': 'pro-bono/', talk: 'talks/
     <Image src={p.data.cover} alt="" widths={[480, 976]} sizes="(min-width: 1040px) 488px, (min-width: 640px) calc(50vw - 32px), calc(100vw - 48px)" loading={priority ? "eager" : "lazy"} fetchpriority={priority ? "high" : "auto"} class="aspect-[16/10] w-full border-b border-line object-cover" />
   )}
   <span class="flex flex-col gap-2.5 p-6">
-    <span class="text-[13px] text-accent">{folder} · {p.data.year}</span>
+    <span class="flex items-center gap-2 text-[13px] text-accent">{folder} · {p.data.year}{p.data.wip && <span class="rounded border border-date px-1.5 leading-4 text-date">wip</span>}</span>
     <span class="font-display text-2xl font-bold text-fg">{p.data.title}</span>
     <span class="text-sm leading-relaxed text-soft">{p.data.summary}</span>
   </span>

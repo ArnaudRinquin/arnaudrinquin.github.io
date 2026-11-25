@@ -28,6 +28,8 @@ const projects = defineCollection({
     repo: z.url().optional(),
     cover: image().optional(),
     featured: z.boolean().default(false),
+    // Still being built: shows a "wip" badge.
+    wip: z.boolean().default(false),
     // Lower comes first, on the home page and in /projects/.
     order: z.number().default(99),
     draft: z.boolean().default(false),
